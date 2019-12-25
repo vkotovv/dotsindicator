@@ -3,6 +3,7 @@ package com.tbuonomo.dotsindicatorsample.viewpager2
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.tbuonomo.dotsindicatorsample.R
@@ -23,9 +24,11 @@ class ViewPager2Activity : AppCompatActivity() {
     val dotsIndicator = findViewById<DotsIndicator>(R.id.dots_indicator)
     val springDotsIndicator = findViewById<SpringDotsIndicator>(R.id.spring_dots_indicator)
     val wormDotsIndicator = findViewById<WormDotsIndicator>(R.id.worm_dots_indicator)
+    val deleteButton = findViewById<Button>(R.id.button_delete)
 
     val viewPager2 = findViewById<ViewPager2>(R.id.view_pager2)
-    val adapter = DotIndicatorPager2Adapter()
+    val items = mutableListOf("1", "2", "3", "4", "5")
+    val adapter = DotIndicatorPager2Adapter(items)
     viewPager2.adapter = adapter
 
     val zoomOutPageTransformer = ZoomOutPageTransformer()
@@ -36,5 +39,11 @@ class ViewPager2Activity : AppCompatActivity() {
     dotsIndicator.setViewPager2(viewPager2)
     springDotsIndicator.setViewPager2(viewPager2)
     wormDotsIndicator.setViewPager2(viewPager2)
+
+    deleteButton.setOnClickListener {
+      items.removeAt(0)
+      viewPager2.adapter?.notifyDataSetChanged()
+    }
+
   }
 }

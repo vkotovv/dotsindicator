@@ -86,5 +86,14 @@
       app:layout_constraintTop_toBottomOf="@+id/spring_dots_indicator"
       ></com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator>
 
+  <Button
+      android:id="@+id/button_delete"
+      android:layout_width="100dp"
+      android:layout_height="wrap_content"
+      android:text="Delete item"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/worm_dots_indicator" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
